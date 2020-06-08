@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Marcador{% endblock %}
+
+{% block contenedor_principal %}
+    <h1>Create new Marcador</h1>
+
+    {{ include('marcador/_form.html.twig') }}
+    
+    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#nuevaEtiquetaModal">Crear etiqueta</button>
+    {{ include('etiqueta/new.modal.html.twig') }}
+
+    <a href="{{ path('app_index') }}">back to list</a>
+{% endblock %}
+
+{% block stylesheets_propio %}
+    <link rel="stylesheet" href="/css/select2.min.css" />
+{% endblock %}
+
+{% block javascript_propio %}
+    <script src="/js/select2.full.min.js"></script>
+    <script src="{{ asset('bundles/tetranzselect2entity/js/select2entity.js') }}"></script>
+{% endblock %}

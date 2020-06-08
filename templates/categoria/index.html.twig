@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block contenedor_principal %}
+    {% include 'comunes/_mensajes.html.twig' %}
+    <h1>Categorías</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Color</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.nombre }}</td>
+                    <td>{{ categoria.color }}</td>
+                    <td>
+                        <a class="btn btn-link" href="{{ path('app_editar_categoria', {'id': categoria.id}) }}">Editar</a>
+                        <a class="btn btn-link" href="{{ path('app_eliminar_categoria', {'id': categoria.id}) }}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-link" href="{{ path('app_nueva_categoria') }}">Agregar nueva categoría</a>
+{% endblock %}
